@@ -69,13 +69,13 @@ spec:
     - name: build
       workspaces:
         - name: source
-          workspace: pipeline-workspace          
+          workspace: pipeline-workspace
       taskRef:
         name: buildah
         kind: ClusterTask
       params:
-      - name: image
+      - name: IMAGE
         value: "$(params.build-image)"
       runAfter:
-        - lint
         - tests
+        - lint
